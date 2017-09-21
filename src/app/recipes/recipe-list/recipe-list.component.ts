@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 
+import { Recipe } from "../recipe.model";
+
 @Component({
   selector: 'app-recipe-list',
   templateUrl: './recipe-list.component.html',
@@ -8,5 +10,8 @@ import { Component } from '@angular/core';
   ]
 })
 export class RecipeListComponent {
-
+  recipes: Recipe[] = [
+    new Recipe('A Test Recipe', 'This is simply a test', 'http://images.media-allrecipes.com/images/67076.jpg'),
+    new Recipe('A Test Recipe', 'This is simply a test', 'http://images.media-allrecipes.com/images/67076.jpg')
+  ];
 }
