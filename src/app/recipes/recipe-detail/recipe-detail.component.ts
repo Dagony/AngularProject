@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component, Input, Output, EventEmitter} from '@angular/core';
+import { Recipe } from "../recipe.model";
 
 @Component({
   selector: 'app-recipe-detail',
@@ -8,5 +9,6 @@ import { Component } from '@angular/core';
   ]
 })
 export class RecipeDetailComponent {
+  @Input() recipe: Recipe;
 
 }
