@@ -8,9 +8,7 @@ import { RecipeService } from './recipe.service';
   styleUrls: [
     './recipes.component.css'
   ],
-  providers: [
-    RecipeService
-  ]
+  providers: [RecipeService]
 })
 export class RecipesComponent implements OnInit {
   selectedRecipe: Recipe;
