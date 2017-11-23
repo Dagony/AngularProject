@@ -17,7 +17,6 @@ export class RecipeEditComponent implements OnInit {
       (params: Params) => {
         this.id = +params['id'];
         this.editMode = params['id'] != null; // if there is an id, we are in edit mode. If there is no id, we are in new mode
-        // console.log("We are in edit mode(" + this.editMode + ")");
       }
     );
   }
