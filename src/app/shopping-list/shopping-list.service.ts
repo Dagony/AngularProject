@@ -28,12 +28,17 @@ export class ShoppingListService {
     // ingredients.forEach(ingredient => {
     //   this.addIngredient(ingredient);
     // });
-    // this.ingredients.push(...ingredients);
+    this.ingredients.push(...ingredients);
     this.ingredientsChanged.next(this.ingredients.slice());
   }
 
   updateIngredient(index: number, ingredient: Ingredient) {
     this.ingredients[index] = ingredient;
+    this.ingredientsChanged.next(this.ingredients.slice());
+  }
+
+  deleteIngredient(index: number) {
+    this.ingredients.splice(index, 1);
     this.ingredientsChanged.next(this.ingredients.slice());
   }
 
