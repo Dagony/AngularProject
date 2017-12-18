@@ -1,5 +1,6 @@
 import { Ingredient } from '../shared/ingredient.model';
 import { Subject } from 'rxjs/Subject';
+import { Store } from '@ngrx/store';
 
 export class ShoppingListService {
 
@@ -10,6 +11,8 @@ export class ShoppingListService {
     new Ingredient('Apples', 5),
     new Ingredient('Tomatoes', 10)
   ];
+
+  constructor(private store: Store<{shoppingList: {ingredients: Ingredient[]}}>) {}
 
   getIngredient(index: number) {
     return this.ingredients[index];

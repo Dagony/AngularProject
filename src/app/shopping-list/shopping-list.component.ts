@@ -15,7 +15,7 @@ export class ShoppingListComponent implements OnInit {
   constructor(private slService: ShoppingListService, private store: Store<{ShoppingList: {ingredients: Ingredient[]}}>) { }
 
   ngOnInit() {
-    this.shoppingListState = this.store.select('shoppingList');
+    this.shoppingListState = this.store.select('ShoppingList');
   }
 
   onEditItem(index: number) {
