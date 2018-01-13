@@ -1,24 +1,21 @@
-import { Component } from '@angular/core';
-
-import { DataStorageService } from '../../shared/data-storage.service';
-import { AuthService } from '../../auth/auth.service';
+import {Component} from '@angular/core';
 // import { HttpEvent, HttpEventType } from '@angular/common/http';
 
+import {DataStorageService} from '../../shared/data-storage.service';
+import {AuthService} from '../../auth/auth.service';
+
 @Component({
-  templateUrl: './header.component.html' ,
-  selector: 'app-header' ,
-  styleUrls: [ './header.component.css' ]
+  selector: 'app-header', templateUrl: './header.component.html'
 })
 export class HeaderComponent {
-
-  constructor(private dataStorageService: DataStorageService, private authService: AuthService) {  }
+  constructor(private dataStorageService: DataStorageService, private authService: AuthService) {
+  }
 
   onSaveData() {
-    this.dataStorageService.storeRecipes().subscribe(
-      (response) => {
+    this.dataStorageService.storeRecipes()
+      .subscribe((response) => {
         console.log(response);
-      }
-    );
+      });
   }
 
   onFetchData() {
@@ -27,9 +24,5 @@ export class HeaderComponent {
 
   onLogout() {
     this.authService.logout();
-  }
-
-  isAuthenticated() {
-    return this.authService.isAuthenticated();
   }
 }
