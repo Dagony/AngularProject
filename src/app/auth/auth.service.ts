@@ -1,7 +1,7 @@
 import {Router} from '@angular/router';
 import * as firebase from 'firebase';
 import {Injectable} from '@angular/core';
-import {Store} from "@ngrx/store";
+import {Store} from '@ngrx/store';
 import * as fromApp from '../store/app.reducers';
 import * as AuthActions from './store/auth.actions';
 
@@ -12,21 +12,25 @@ export class AuthService {
 
   signupUser(email: string, password: string) {
     firebase.auth().createUserWithEmailAndPassword(email, password)
-      .then(user => {
+      .then(() => {
         this.store.dispatch(new AuthActions.Signup());
+        firebase.auth().currentUser.getToken()
+          .then((token: string) => {
+            this.store.dispatch(new AuthActions.SetToken(token));
+          });
       })
-      .catch(error => console.log(error))
+      .catch(error => console.log(error));
   }
 
   signinUser(email: string, password: string) {
     firebase.auth().signInWithEmailAndPassword(email, password)
-      .then(response => {
+      .then(() => {
         this.store.dispatch(new AuthActions.Signin());
         this.router.navigate([ '/' ]);
         firebase.auth().currentUser.getToken()
           .then((token: string) => {
-            this.store.dispatch(new AuthActions.SetToken(token))
-          })
+            this.store.dispatch(new AuthActions.SetToken(token));
+          });
       })
       .catch(error => console.log(error));
   }
