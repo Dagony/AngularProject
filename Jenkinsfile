@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker {
-            image 'node:9.4.0'
+            image 'node:7.9.0'
         }
     }
 
@@ -13,7 +13,7 @@ pipeline {
         stage('Install dependencies') {
             steps {
                 sh 'npm install --save @angular/cli'
-                sh 'npm install'
+                sh 'npm install --silent'
                 sh 'apt-get update'
                 sh 'apt-get install -y rsync'
                 sh 'node --version'
