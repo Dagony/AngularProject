@@ -12,7 +12,7 @@ pipeline {
     stages {
         stage('Install dependencies') {
             steps {
-                sh 'npm install --save-dev @angular/cli'
+                sh 'npm install --save @angular/cli'
                 sh 'npm install'
                 sh 'apt-get update'
                 sh 'apt-get install -y rsync'
