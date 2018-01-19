@@ -20,12 +20,6 @@ pipeline {
             }
         }
 
-        stage('Run Tests') {
-            steps {
-                sh 'node_modules/@angular/cli/bin/ng test'
-            }
-        }
-
         stage('Build Angular') {
             steps {
                 sh 'node_modules/@angular/cli/bin/ng build'
