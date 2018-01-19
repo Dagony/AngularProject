@@ -22,13 +22,13 @@ pipeline {
 
         stage('Run Tests') {
             steps {
-                sh 'ng test'
+                sh './node_modules/@angular/cli/bin/ng test'
             }
         }
 
         stage('Build Angular') {
             steps {
-                sh 'ng build'
+                sh './node_modules/@angular/cli/bin/ngng build'
             }
         }
 
