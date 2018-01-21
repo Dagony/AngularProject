@@ -3,6 +3,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {HttpClientModule} from '@angular/common/http';
 import {NgModule} from '@angular/core';
 import {StoreModule} from '@ngrx/store';
+import {StoreRouterConnectingModule} from '@ngrx/router-store';
 
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing.module';
@@ -17,7 +18,7 @@ import {AuthEffects} from './auth/store/auth.effects';
 @NgModule({
   declarations: [AppComponent],
   imports: [BrowserModule, HttpClientModule, AppRoutingModule, SharedModule, ShoppingListModule, AuthModule, CoreModule,
-    StoreModule.forRoot(reducers), EffectsModule.forRoot([AuthEffects])],
+    StoreModule.forRoot(reducers), EffectsModule.forRoot([AuthEffects]), StoreRouterConnectingModule],
   bootstrap: [AppComponent]
 })
 export class AppModule {
