@@ -16,8 +16,8 @@ import {recipeReducer} from './store/recipe.reducers';
 import {RecipeEffects} from './store/recipe.effects';
 
 @NgModule({
-  declarations: [ RecipesComponent, RecipeStartComponent, RecipeListComponent, RecipeEditComponent, RecipeDetailComponent, RecipeItemComponent ],
-  imports: [ CommonModule, ReactiveFormsModule, RecipesRoutingModule, SharedModule, StoreModule.forFeature('recipes', recipeReducer), EffectsModule.forFeature([RecipeEffects]) ]
+  declarations: [RecipesComponent, RecipeStartComponent, RecipeListComponent, RecipeEditComponent, RecipeDetailComponent, RecipeItemComponent],
+  imports: [CommonModule, ReactiveFormsModule, RecipesRoutingModule, SharedModule, StoreModule.forFeature('recipes', recipeReducer), EffectsModule.forFeature([RecipeEffects])]
 })
 export class RecipesModule {
 }
