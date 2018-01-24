@@ -1,7 +1,7 @@
 pipeline {
     agent {
-        docker {
-            image 'node:7.9.0'
+        dockerfile {
+            dir "buildagent"
         }
     }
 
@@ -12,10 +12,7 @@ pipeline {
     stages {
         stage('Install dependencies') {
             steps {
-                sh 'npm install --save @angular/cli'
                 sh 'npm install --silent'
-                sh 'apt-get update'
-                sh 'apt-get install -y rsync'
                 sh 'node --version'
             }
         }
