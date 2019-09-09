@@ -23,6 +23,18 @@ pipeline {
             }
         }
 
+        stage('Test Angular') {
+            steps {
+                sh 'node_modules/@angular/cli/bin/ng test'
+            }
+        }
+
+        stage('Test Angular E2E') {
+            steps {
+                sh 'npm run e2e'
+            }
+        }
+
         stage('Publish Angular') {
             when {
                 branch 'master'
